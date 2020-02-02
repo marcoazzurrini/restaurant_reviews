@@ -1,0 +1,41 @@
+// TEXT
+$font-src: "https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap";
+$font-primary: "Roboto";
+
+$font400: 16px;
+$font300: 14px;
+$font200: 13px;
+$font100: 12px;
+
+// MARGINS AND PADDINGS
+$pm100: 10px;
+$pm200: 30px;
+$pm300: 60px;
+$pm400: 250px;
+
+// GREYS
+$white: #fff;
+$grey100: hsl(0, 5, 96);
+$grey200: hsl(0, 0, 60);
+$grey300: hsl(0, 0, 30);
+$grey400: hsl(0, 5, 18);
+
+// PRIMARTY COLOR
+$primary100: hsl(217, 89, 75);
+$primary200: hsl(217, 89, 61);
+$primary300: hsl(217, 89, 25);
+
+// BOX SHADOWS
+$direct-light: 0 3px 4px rgba(0, 0, 0, 0.3);
+$direct-light: 0 15px 20px rgba(0, 0, 0, 0.15);
+$direct-light-side: 3px 0 4px rgba(0, 0, 0, 0.3);
+$direct-light-side: 15px 0 20px rgba(0, 0, 0, 0.15);
+$input-light: inset 0 3px 4px rgba(0, 0, 0, 0.2);
+
+// BORDER RADIUS
+$bdr100: 3px;
+
+// SIZES
+$sidebar-w: 500px;
+$chevron-w: 10px;
+$sidebar-mobile-h: 90vh;
