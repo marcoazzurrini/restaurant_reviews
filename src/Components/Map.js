@@ -20,7 +20,7 @@ class Map extends Component {
         };
         fetchPlaces(center.lat, center.lng).then(data =>
           this.setState({
-            places: [...this.state.places, data.results],
+            places: [...this.state.places, ...data],
             center: center
           })
         );
@@ -29,7 +29,6 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.state.places);
     if (this.state.center.lat) {
       return (
         <div style={{ height: "100vh", width: "100%" }}>
@@ -41,7 +40,13 @@ class Map extends Component {
             defaultZoom={this.state.zoom}
           >
             {this.state.places.map((place, index) => {
-              return <Marker lat={place.lat} lng={place.long} key={index} />;
+              return (
+                <Marker
+                  lat={place.geometry.location.lat}
+                  lng={place.geometry.location.lng}
+                  key={index}
+                />
+              );
             })}
           </GoogleMapReact>
         </div>

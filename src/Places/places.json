@@ -2,8 +2,12 @@
   {
     "restaurantName": "Bronco",
     "address": "39 Rue des Petites Écuries, 75010 Paris",
-    "lat": 48.8737815,
-    "long": 2.3501649,
+    "geometry": {
+      "location": {
+        "lat": 48.8737815,
+        "lng": 2.3501649
+      }
+    },
     "ratings": [
       {
         "stars": 4,
@@ -18,8 +22,12 @@
   {
     "restaurantName": "Babalou",
     "address": "4 Rue Lamarck, 75018 Paris",
-    "lat": 48.8865035,
-    "long": 2.3442197,
+    "geometry": {
+      "location": {
+        "lat": 48.8865035,
+        "lng": 2.3442197
+      }
+    },
     "ratings": [
       {
         "stars": 5,
