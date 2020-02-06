@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 
 exports.handler = async (event, context) => {
+  console.log("run");
   const key = process.env.REACT_APP_GOOGLE_API;
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=${event.queryStringParameters.lat},${event.queryStringParameters.lng}&radius=5000&type=restaurant&fields=review&key=${key}`;
-
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${event.queryStringParameters.id}&fields=review,name,rating,geometry&key=${key}`;
   return fetch(url)
     .then(response => response.json())
     .then(data => ({
