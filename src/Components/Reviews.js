@@ -38,6 +38,7 @@ export default class Reviews extends Component {
             className="sidebar__reviews--input"
             type="text"
             data-id="review"
+            placeholder="Enter review"
             value={this.state.review}
             onChange={this.handleChange}
           />
@@ -45,6 +46,7 @@ export default class Reviews extends Component {
             className="sidebar__reviews--input"
             type="number"
             data-id="rating"
+            placeholder="Enter rating"
             value={this.state.rating}
             onChange={this.handleChange}
           />

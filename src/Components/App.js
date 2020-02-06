@@ -44,10 +44,10 @@ class App extends Component {
     this.startApp(this.state.center, rating);
   };
 
-  addPlace = (lat, lng, name, rating) => {
+  addPlace = (lat, lng, name, formatted_address) => {
     let newPlace = {
       name,
-      rating,
+      formatted_address,
       geometry: {
         location: {
           lat: lat,

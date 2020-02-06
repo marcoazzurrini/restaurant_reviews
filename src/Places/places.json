@@ -1,7 +1,7 @@
 [
   {
     "name": "Bronco",
-    "address": "39 Rue des Petites Écuries, 75010 Paris",
+    "formatted_address": "39 Rue des Petites Écuries, 75010 Paris",
     "rating": 3.8,
     "geometry": {
       "location": {
@@ -23,7 +23,7 @@
   },
   {
     "name": "Babalou",
-    "address": "4 Rue Lamarck, 75018 Paris",
+    "formatted_address": "4 Rue Lamarck, 75018 Paris",
     "rating": 4.8,
     "geometry": {
       "location": {

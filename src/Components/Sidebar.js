@@ -5,10 +5,12 @@ import Reviews from "../Components/Reviews";
 import Filter from "../Components/Filter";
 
 const calculateRating = ratingArr => {
-  return (
-    ratingArr.map(review => review.rating).reduce((acc, val) => acc + val) /
-    ratingArr.length
-  );
+  if (ratingArr) {
+    return (
+      ratingArr.map(review => review.rating).reduce((acc, val) => acc + val) /
+      ratingArr.length
+    );
+  } else return "";
 };
 
 export default class Sidebar extends Component {
@@ -45,13 +47,17 @@ export default class Sidebar extends Component {
           {value =>
             value.details
               ? value.details.map((place, index) => {
+                  console.log(place);
                   return (
                     <div key={index} className="sidebar__item">
                       <h3 className="sidebar__item--name">{place.name}</h3>
                       <p className="sidebar__item--rating">
                         Rating:
-                        {parseInt(calculateRating(place.reviews))}
+                        {calculateRating()
+                          ? parseInt(calculateRating(place.reviews))
+                          : ""}
                       </p>
+                      <p>{place.formatted_address}</p>
                       <img
                         className="sidebar__item--img"
                         src={

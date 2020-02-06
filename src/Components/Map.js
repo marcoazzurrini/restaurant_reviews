@@ -10,7 +10,7 @@ export default class Map extends Component {
     lat: "",
     lng: "",
     name: "",
-    rating: "",
+    address: "",
     x: "",
     y: ""
   };
@@ -38,7 +38,7 @@ export default class Map extends Component {
       this.state.lat,
       this.state.lng,
       this.state.name,
-      this.state.rating
+      this.state.address
     );
     this.setState({ toggleInput: false, name: "" });
   };
@@ -60,13 +60,15 @@ export default class Map extends Component {
               <input
                 type="text"
                 id="name"
+                placeholder="Restaurant name"
                 value={this.state.name}
                 onChange={this.handleChange}
               />
               <input
-                type="number"
-                id="rating"
-                value={this.state.rating}
+                type="text"
+                id="address"
+                placeholder="Restaurant address"
+                value={this.state.address}
                 onChange={this.handleChange}
               />
               <button type="submit">Submit</button>
