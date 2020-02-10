@@ -3,15 +3,7 @@ import ChevronRight from "../img/triangle_right.png";
 import PlacesContext from "../Context/PlacesContext";
 import Reviews from "../Components/Reviews";
 import Filter from "../Components/Filter";
-
-const calculateRating = ratingArr => {
-  if (ratingArr) {
-    return (
-      ratingArr.map(review => review.rating).reduce((acc, val) => acc + val) /
-      ratingArr.length
-    );
-  } else return "";
-};
+import { calculateRating } from "../Utils/calculateRating";
 
 export default class Sidebar extends Component {
   state = { toggle: "" };
@@ -47,17 +39,16 @@ export default class Sidebar extends Component {
           {value =>
             value.details
               ? value.details.map((place, index) => {
-                  console.log(place);
                   return (
                     <div key={index} className="sidebar__item">
                       <h3 className="sidebar__item--name">{place.name}</h3>
                       <p className="sidebar__item--rating">
                         Rating:
-                        {calculateRating()
-                          ? parseInt(calculateRating(place.reviews))
-                          : ""}
+                        {parseInt(calculateRating(place.reviews, place.rating))}
                       </p>
-                      <p>{place.formatted_address}</p>
+                      <p className="sidebar__item--address">
+                        {place.formatted_address}
+                      </p>
                       <img
                         className="sidebar__item--img"
                         src={

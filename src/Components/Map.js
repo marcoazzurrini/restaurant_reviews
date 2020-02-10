@@ -12,10 +12,10 @@ export default class Map extends Component {
     name: "",
     address: "",
     x: "",
-    y: ""
+    y: "",
+    rating: 4
   };
   getLatLng = e => {
-    console.log(e, e.clientX);
     if (this.state.toggleInput === false)
       this.setState({
         toggleInput: true,
@@ -38,9 +38,10 @@ export default class Map extends Component {
       this.state.lat,
       this.state.lng,
       this.state.name,
-      this.state.address
+      this.state.address,
+      this.state.rating
     );
-    this.setState({ toggleInput: false, name: "" });
+    this.setState({ toggleInput: false, name: "", address: "", rating: 4 });
   };
 
   render() {
@@ -55,6 +56,7 @@ export default class Map extends Component {
                 left: `${this.state.x}px`,
                 top: `${this.state.y}px`
               }}
+              className="mapForm"
               onSubmit={this.addMarker}
             >
               <input
@@ -63,6 +65,7 @@ export default class Map extends Component {
                 placeholder="Restaurant name"
                 value={this.state.name}
                 onChange={this.handleChange}
+                className="mapForm__input"
               />
               <input
                 type="text"
@@ -70,8 +73,19 @@ export default class Map extends Component {
                 placeholder="Restaurant address"
                 value={this.state.address}
                 onChange={this.handleChange}
+                className="mapForm__input"
               />
-              <button type="submit">Submit</button>
+              <input
+                type="number"
+                id="rating"
+                placeholder="Rating"
+                value={this.state.rating}
+                onChange={this.handleChange}
+                className="mapForm__input"
+              />
+              <button type="submit" className="mapForm__btn">
+                Submit
+              </button>
             </form>
           ) : (
             ""

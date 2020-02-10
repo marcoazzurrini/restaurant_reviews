@@ -5,12 +5,14 @@ import { fetchPlaces } from "../Utils/PlacesAPI";
 import { fetchDetails } from "../Utils/PlacesDetails";
 import PlacesJSON from "../Places/places.json";
 import PlacesContext from "../Context/PlacesContext";
+import { calculateRating } from "../Utils/calculateRating";
 
 class App extends Component {
   state = {
     center: {},
     zoom: 11,
-    details: PlacesJSON
+    details: PlacesJSON,
+    addedPlaces: []
   };
 
   componentDidMount() {
@@ -26,13 +28,14 @@ class App extends Component {
   }
 
   startApp = (center = this.state.center, rating = 1) => {
-    this.setState({ details: PlacesJSON });
+    this.setState({ details: [...PlacesJSON, ...this.state.addedPlaces] });
+    console.log(this.state.details);
     fetchPlaces(center.lat, center.lng).then(data => {
       data.forEach(place => {
         fetchDetails(place.place_id).then(details =>
           this.setState({
             details: [...this.state.details, details.result].filter(
-              place => place.rating > rating
+              place => place.rating >= rating
             ),
             center: center
           })
@@ -40,13 +43,15 @@ class App extends Component {
       });
     });
   };
+
   filterByRating = rating => {
     this.startApp(this.state.center, rating);
   };
 
-  addPlace = (lat, lng, name, formatted_address) => {
+  addPlace = (lat, lng, name, formatted_address, rating) => {
     let newPlace = {
       name,
+      rating,
       formatted_address,
       geometry: {
         location: {
@@ -56,13 +61,16 @@ class App extends Component {
       },
       reviews: []
     };
-    this.setState({ details: [...this.state.details, newPlace] });
+    this.setState({
+      details: [...this.state.details, newPlace],
+      addedPlaces: [...this.state.addedPlaces, newPlace]
+    });
   };
 
   addReview = (review, rating, index) => {
     let placeDetails = this.state.details;
     placeDetails[index].reviews.push({ text: review, rating });
-
+    placeDetails[index].rating = calculateRating(placeDetails[index].reviews);
     this.setState({ details: placeDetails });
   };
 

@@ -7,7 +7,7 @@
   background: $grey100;
   transition: all 0.25s;
   overflow-y: scroll;
-
+  padding: $pm100;
   &.show {
     left: 0;
   }
@@ -33,19 +33,79 @@
 
   &__item {
     padding: $pm100;
-    margin-bottom: $pm200;
+    margin-bottom: $pm300;
     &--name {
+      color: $primary300;
+      margin-bottom: $pm100;
+      font-size: 35px;
+    }
+    &--rating {
       color: $grey500;
+      font-size: 25px;
       margin-bottom: $pm200;
     }
+
+    &--address {
+      font-size: 20px;
+      color: $grey300;
+      font-style: italic;
+    }
     &--img {
-      max-width: 100%;
+      width: 100%;
+      margin: $pm200 0;
+      box-shadow: $direct-light;
     }
   }
 
   &__reviews {
     &--item {
       margin-bottom: $pm200;
+      padding: $pm200 0;
+      border-radius: 3px;
+    }
+
+    &--text {
+      margin-bottom: $pm200;
+      color: $grey500;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    &--rating {
+      color: $primary300;
+      font-weight: bold;
+    }
+    &--input {
+      width: 100%;
+      border: 0;
+      box-shadow: $direct-light;
+      margin-bottom: $pm100;
+      border-radius: 3px;
+      padding: $pm100;
+      outline: none;
+    }
+    &--btn {
+      background: $primary300;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      box-shadow: $ambient-light;
+      padding: 0.5rem 1rem;
+      margin-top: $pm100;
+    }
+    &--btnOutline {
+      color: $primary300;
+      border: none;
+      background: none;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: $pm300;
+      @include flexy(center, center, row-reverse);
+      cursor: pointer;
+      img {
+        max-width: 35px;
+        margin-right: $pm100;
+      }
     }
   }
 

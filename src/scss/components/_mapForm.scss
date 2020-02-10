@@ -1,0 +1,22 @@
+.mapForm {
+  max-width: 280px;
+
+  &__input {
+    width: 100%;
+    border: none;
+    box-shadow: $direct-light;
+    padding: 0.75rem 1rem;
+    border-radius: 3px;
+    margin-bottom: $pm100;
+    outline: none;
+  }
+
+  &__btn {
+    background: $primary300;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    box-shadow: $ambient-light;
+    border: none;
+  }
+}
